@@ -1,0 +1,1 @@
+{"3568": {"numOfStops": 0, "price": 312, "numOfSeatsLeft": 94, "stop0": "DSM", "stop1": "ATL"}, "2936": {"numOfStops": 0, "price": 404, "numOfSeatsLeft": 68, "stop0": "DSM", "stop1": "ATL"}}

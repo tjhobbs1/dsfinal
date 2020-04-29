@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div id="flightForm">
+
+<form action="{% url 'home'%}" method="POST">{% csrf_token %}
+        <div><img src=""></div>
+        <h1>Book Your Trip</h1>
+        <h3>From</h3>
+        <p>{{form.flightFrom}}</p>
+        <h3>To</h3>
+        <p>{{form.destination}}</p>
+        <h3>Max Number of Stops</h3>
+        <p>{{form.numOfStops}}</p>
+        
+
+        <input type="submit" value="Submit" class="myButton">
+</form>
+
+</div>
+
+{% endblock %}

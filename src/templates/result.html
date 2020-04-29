@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <h1 id="resultHeader">Flight Results</h1>
+        {% if results %}
+        <ul>
+            {% for result in results %}
+                
+            {% endfor %}
+        </ul>
+        {% else %}
+            <div id="error">
+                <strong><h1>There are NO flights between {{x}} to {{y}} with {{stops}} stops.</h1> </strong>
+            </div>
+            
+        {% endif %} <!-- End if results -->
+
+    
+        {% for key, value in results.items %}
+               
+                {% if value.numOfStops == -1 %}
+                    <div id="error">
+                        <h1>Departing and Arrival Airports Can't Be The Same</h1>
+                    </div>
+            
+                {%else%}
+                <div id="flightForm">
+                        <h3>{{x}} to {{y}}</h3> 
+                        <p>Flight: {{key}}</p>
+                        <h2>${{value.price}}</h2>
+                        <p><strong>Number of Stops: </strong>{{value.numOfStops}}</p>
+                        
+                        {% if value.numOfSeatsLeft <= 5 %}
+                            <h3>Limited Seats Left!!!</h3>
+                            <p style="color:red"><strong>Number of Seats Left: {{value.numOfSeatsLeft}}</strong></p>
+                        {%else%}
+                            <p ><strong>Number of Seats Left: {{value.numOfSeatsLeft}}</strong></p>
+                        {%endif%}
+                       
+
+
+                            {% if value.stop3 != null %}
+                                <p>{{value.stop0}} -> {{value.stop1}} -> {{value.stop2}} -> {{value.stop3}}</p>
+                            {% elif value.stop2 != null %}
+                                <p>{{value.stop0}} -> {{value.stop1}} -> {{value.stop2}}</p>
+                            {% else %}
+                                <p>{{value.stop0}} -> {{value.stop1}}</p>
+                            {%endif%}
+                    
+
+                
+                <p></p>
+                <p></p>
+                        
+
+                </div>
+                {%endif%}  <!-- End Check for same send/dest -->
+            
+        {% endfor %} <!-- End Loop Through Results -->
+       
+        
+        {% endblock %}
+ 
+
+
